@@ -1,3 +1,5 @@
+import Navbar from "@/components/Navbar";
+import Searchbar from "@/components/Searchbar";
 import { getDiagnosis } from "@/utils/ai";
 
 const getDiagnosisObj = async (message: string) => {
@@ -18,7 +20,8 @@ const page = async() => {
 
     return (
         <div>
-            ChatGPT BOT HERE 
+            <Navbar/>
+            <Searchbar/>
             {/* {response} */}
         </div>
     );
