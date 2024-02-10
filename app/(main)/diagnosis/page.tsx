@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Searchbar from "@/components/Searchbar";
+
 import { getDiagnosis } from "@/utils/ai";
 import Link from "next/link";
 
@@ -13,7 +14,6 @@ import Link from "next/link";
 
 
 const page = async() => {
- 
     // const doctor_needed = responseObj["doctor_needed"];
     // const diagnosis = responseObj["diagnosis"];
     // console.log(responseObj.doctor_needed);
