@@ -1,15 +1,19 @@
 import { getDiagnosis } from "@/utils/ai";
 
+const getDiagnosisObj = async (message: string) => {
+    const response = await getDiagnosis(message);
+    const responseObj = JSON.parse(response?.toString() || "{}");
+    return responseObj;
+}
+
 
 
 
 const page = async() => {
-    const response = await getDiagnosis("I have a headache");
-    console.log("This is a response",response);
-    const responseObj = JSON.parse(response?.toString() || "{}");
+    const responseObj = await getDiagnosisObj("I have a headache");
  
-    const doctor_needed = responseObj["doctor_needed"];
-    const diagnosis = responseObj["diagnosis"];
+    // const doctor_needed = responseObj["doctor_needed"];
+    // const diagnosis = responseObj["diagnosis"];
     // console.log(responseObj.doctor_needed);
 
     return (
