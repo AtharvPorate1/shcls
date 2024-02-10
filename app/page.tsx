@@ -1,3 +1,4 @@
+
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Searchbar from "@/components/Searchbar";
@@ -12,5 +13,7 @@ export default function Home() {
         <Searchbar/>  
       </div>
     </main>
+
+
   );
 }
