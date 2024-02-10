@@ -1,50 +1,18 @@
-// import OpenAI from "openai";
+import OpenAI from "openai";
 
-// const openai = new OpenAI(process.env.OPENAI_API_KEY);
+const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
+export const getDiagnosis = async (message: string) => {
+    const completion = await openai.chat.completions.create({
+        messages: [
+            { role: "system", content: "You are a Diagnosis bot.Respond in json Who gives a very breif diagnosis and have access to all the hospitals in Pune, Whenever someone gives you what they are facing, you will give them a short diagnosis mentioning of what could be the problem, never say that you are 100% sure always speak like you may have this problem or that. Also you have to categorize their problem in needing what type of doctor and strictly choose from these 1.Infections 2.Gynaecologist & Obstetrician Doctors 3.Psychiatrists 4.Paediatricians 5.Orthopedic Surgeons 6.Dermologists 7.Neurologists 8.Cough 9.Arthritis 10.ENT" },
+            { role: "user", content: message },
+        ],
+        model: "gpt-3.5-turbo-0125",
+        temperature: 0,
+        response_format: { type: "json_object" },
+    });
 
-
-// export const getDiagnosis = async (message: string) => {
-//     const completion = await openai.chat.completions.create({
-//         messages: [{ role: "system", content: "You are a helpful assistant." },
-//                    { role: "user", content: message},],
-
-//         model: "gpt-3.5-turbo",
-//         stream: true,
-        
-//     });
-    
-//     for (const chunk of completion.choices[0].message.content) {
-//         console.log(chunk);
-//         console.log(chunk.choices[0].delta.content);
-//     }
-    
-//     return completion.choices[0].message.content;
-//     }
-import { OpenAIStream, StreamingTextResponse } from 'ai'
-import { Configuration, OpenAIApi } from 'openai-edge'
-
-// Create an OpenAI API client (that's edge friendly!)
-const config = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
-})
-const openai = new OpenAIApi(config)
- 
-// IMPORTANT! Set the runtime to edge
-export const runtime = 'edge'
- 
-export async function POST(req: Request) {
-  // Extract the `messages` from the body of the request
-  const { messages } = await req.json()
- 
-  // Ask OpenAI for a streaming chat completion given the prompt
-  const response = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
-    stream: true,
-    messages
-  })
-  // Convert the response into a friendly text-stream
-  const stream = OpenAIStream(response)
-  // Respond with the stream
-  return new StreamingTextResponse(stream)
+    console.log(completion.choices[0].message.content);
+    return completion.choices[0].message.content;
 }

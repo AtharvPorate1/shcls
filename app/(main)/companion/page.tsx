@@ -1,28 +1,23 @@
-'use client'
+import { getDiagnosis } from "@/utils/ai";
 
-import { useChat } from 'ai/react'
 
-export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat()
 
-  return (
-    <div>
-      {messages.map(m => (
-        <div key={m.id}>
-          {m.role}: {m.content}
+
+const page = async() => {
+    const response = await getDiagnosis("I have a headache");
+    console.log("This is a response",response);
+    const responseObj = JSON.parse(response?.toString() || "{}");
+ 
+    const doctor_needed = responseObj["doctor_needed"];
+    const diagnosis = responseObj["diagnosis"];
+    // console.log(responseObj.doctor_needed);
+
+    return (
+        <div>
+            ChatGPT BOT HERE 
+            {/* {response} */}
         </div>
-      ))}
-
-      <form onSubmit={handleSubmit}>
-        <label>
-          Say something...
-          <input
-            value={input}
-            onChange={handleInputChange}
-          />
-        </label>
-      </form>
-      
-    </div>
-  )
+    );
 }
+
+export default page;
