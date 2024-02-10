@@ -1,4 +1,3 @@
-
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
@@ -12,7 +11,11 @@ export default async function Home() {
       <div className=" bg-[#72D6EA] h-[60vh]">
         <Navbar/>
         <Hero/>
-        
+        <Link href={"/diagnosis"}>
+          <button>
+            Get Started
+          </button>
+        </Link>
       </div>
     </main>
 
