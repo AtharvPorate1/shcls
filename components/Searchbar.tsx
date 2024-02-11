@@ -1,7 +1,28 @@
 
 import { getDiagnosis } from "@/utils/ai";
 import { redis } from "@/utils/redis";
+import { revalidatePath } from "next/cache";
 
+
+const renderResultComponent = async () => {
+  const diagnosisResult = await redis.get("diagnosis");
+  const obj = JSON.parse(diagnosisResult || "{}");
+  const result = obj["diagnosis"];
+  return (
+    <div>
+      <div className="flex gap-2 mt-10 mb-5">
+        <h1 className=" font-WorkSans text-3xl font-medium">Diagnostic Result :</h1>
+        <h1 className=" font-WorkSans text-xl font-medium">{result}</h1>
+      </div>
+      <hr></hr>
+      <div className="flex justify-between">
+        <h1 className=" font-WorkSans text-2xl font-medium">
+          Recommended Hospitals
+        </h1>
+      </div>
+    </div>
+  );
+}
 
 
 const Searchbar = () => {
@@ -13,6 +34,7 @@ const Searchbar = () => {
     const response = await getDiagnosis(symptom.toString());
     redis.set("diagnosis", response?.toString() || "");
     console.log(response);
+    revalidatePath("/diagnosis");
   }
  
 
@@ -41,7 +63,9 @@ const Searchbar = () => {
           </button>
         
       </form>
+            <new Result/>
       </div>
+      
     </div>
   );
 };
