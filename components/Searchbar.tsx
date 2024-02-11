@@ -1,4 +1,4 @@
-
+"use server"
 
 import { getDiagnosis } from "@/utils/ai";
 import { redis } from "@/utils/redis";
@@ -33,7 +33,7 @@ const Searchbar = () => {
   
   const handleForm = async (formData: FormData) => {
     const symptom = formData.get("symptom");
-    "use server"
+    
   
     // Check if symptom is null or undefined
     if (symptom !== null && symptom !== undefined) {
