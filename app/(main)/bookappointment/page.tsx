@@ -22,7 +22,7 @@ const Apt = () => {
                     <BookAppt/>
                     </div>    
                     <div className="flex justify-center border-2 border-[#55a05a] mt-0 mx-20 rounded-xl pt-4 w-[25%]">
-                    {IsBooked === false ? <Appointment book={Booked}/> : <BookSuccessMsg/>}   
+                    {IsBooked === false ? <Appointment /> : <BookSuccessMsg/>}   
                     </div>
                 </div>
             </div>
