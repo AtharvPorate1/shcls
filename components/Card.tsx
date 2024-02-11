@@ -1,3 +1,4 @@
+
 const Card = async () => {
   const hospitals = await prisma.hospitals.findMany({
     where: {
@@ -37,3 +38,4 @@ const Card = async () => {
 }
 
 export default Card;
+

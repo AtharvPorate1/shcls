@@ -1,4 +1,5 @@
 
+
 import { getDiagnosis } from "@/utils/ai";
 import { redis } from "@/utils/redis";
 import { revalidatePath } from "next/cache";
@@ -69,5 +70,6 @@ const Searchbar = () => {
     </div>
   );
 };
+
 
 export default Searchbar;
