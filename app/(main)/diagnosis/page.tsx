@@ -1,8 +1,9 @@
 
 import Card from "@/components/Card";
-import Dropdown from "@/components/DropDown";
+
 
 import Navbar from "@/components/Navbar";
+import Result from "@/components/Result";
 import Searchbar from "@/components/Searchbar";
 
 import { getDiagnosis } from "@/utils/ai";
@@ -27,11 +28,14 @@ const page = async() => {
       
 
     return (
+
         <div className=" bg-[#55a05a] overflow-hidden">
+
             <Navbar/>
             <div className="bg-[#ffffff] rounded-3xl m-5 p-8 px-8 ">
                 <div className="flex justify-center flex-col items-center">
                 <h1 className=" font-WorkSans text-4xl font-medium">Diagnosis</h1>
+
                 <Searchbar/>
                 </div>
                 {/* {response} */}
@@ -48,6 +52,7 @@ const page = async() => {
                 <Card/>
                 <Card/>
                 <Card/>
+
             </div>
         </div>
 

@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useState } from "react";
 import Appointment from "@/components/Appointment";
@@ -25,6 +26,7 @@ const page = () => {
                     </div>
                 </div>
             </div>
+
 
         </div>
     );
