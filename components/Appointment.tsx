@@ -44,7 +44,7 @@ const sendEmail = async () => {
 
 
 
-const Appointment = (props) => {
+const Appointment = () => {
     return (
       <div>
         <div className="bg-white shadow-md rounded-md mb-4 w-[230px] ">
@@ -74,7 +74,7 @@ const Appointment = (props) => {
             <input className="shadow appearance-none border rounded w-full py-1 px-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-xs" id="datetime" type="datetime-local" />
           </div>
           <div className="flex justify-center">
-            <button className="border-2 border-[#55a05a] hover:bg-[#55a05a] hover:text-[#fffcf2] px-2 rounded-md" onClick={props.book}>Confirm</button>
+            <button className="border-2 border-[#55a05a] hover:bg-[#55a05a] hover:text-[#fffcf2] px-2 rounded-md" >Confirm</button>
           </div>
         </div>
   
