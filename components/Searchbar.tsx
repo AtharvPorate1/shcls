@@ -4,6 +4,8 @@ import { getDiagnosis } from "@/utils/ai";
 import { redis } from "@/utils/redis";
 import { revalidatePath } from "next/cache";
 import Card from "./Card";
+import Result from "./Result";
+
 
 
 const renderResultComponent = async () => {
@@ -29,16 +31,21 @@ const renderResultComponent = async () => {
 
 const Searchbar = () => {
   
-  const handleForm = async (formData:FormData) => {
-    "use server"
+  const handleForm = async (formData: FormData) => {
     const symptom = formData.get("symptom");
-    // console.log(formData);
-    const response = await getDiagnosis(symptom.toString());
-    redis.set("diagnosis", response?.toString() || "");
-    // console.log(response);
-    revalidatePath("/diagnosis");
+    "use server"
+  
+    // Check if symptom is null or undefined
+    if (symptom !== null && symptom !== undefined) {
+      const response = await getDiagnosis(symptom.toString());
+      redis.set("diagnosis", response?.toString() || "");
+      revalidatePath("/diagnosis");
+    } else {
+      // Handle the case where symptom is null or undefined
+      console.error("Symptom is null or undefined");
+    }
   }
- 
+  
 
   
 
@@ -64,7 +71,7 @@ const Searchbar = () => {
           </button>
         
       </form>
-            <new Result/>
+            <Result/>
       </div>
       
       
