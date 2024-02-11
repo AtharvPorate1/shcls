@@ -1,4 +1,4 @@
-
+"use server"
 import Card from "@/components/Card";
 
 
@@ -9,11 +9,11 @@ import Searchbar from "@/components/Searchbar";
 import { getDiagnosis } from "@/utils/ai";
 
 
-const getDiagnosisObj = async (message: string) => {
-    const response = await getDiagnosis(message);
-    const responseObj = JSON.parse(response?.toString() || "{}");
-    return responseObj;
-}
+// const getDiagnosisObj = async (message: string) => {
+//     const response = await getDiagnosis(message);
+//     const responseObj = JSON.parse(response?.toString() || "{}");
+//     return responseObj;
+// }
 
 
 
