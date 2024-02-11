@@ -43,5 +43,5 @@ const Filter = ({ onFilterChange }) => {
         </div>
     );
 }
-
+}
 export default Filters;
