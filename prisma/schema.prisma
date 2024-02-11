@@ -10,32 +10,33 @@ datasource db {
 
 model Hospitals {
   id           Int      @id @default(autoincrement())
-  name         String
-  Area         String?
-  Address      String?
+  Category     String
+  name         String    @db.VarChar(600)
+  Area         String?  @db.VarChar(1000)
+  Address      String?    @db.VarChar(1000)
   Rating       Float?
   phone        String?
   TotalReviews Int?
-  ThumbNail    String?
+  ThumbNail    String?  @db.VarChar(1000)
   OpeningTime  String?
   Verified     Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  Reviews      Reviews[]
+  // Reviews      Reviews[]
   
-  @@index([TotalReviews], name: "TotalReviewsIndex") // Adding index to TotalReviews field
+  // @@index([TotalReviews], name: "TotalReviewsIndex") // Adding index to TotalReviews field
 }
 
-model Reviews {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String
-  rating    Float
-  message   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Hospitals Hospitals @relation(fields: [hospitalId], references: [id])
-  hospitalId Int
+// model Reviews {
+//   id        Int      @id @default(autoincrement())
+//   name      String?
+//   email     String?
+//   rating    Float?
+//   message   String?
+//   createdAt DateTime? @default(now())
+//   updatedAt DateTime? @updatedAt
+//   Hospitals Hospitals @relation(fields: [hospitalId], references: [id])
+//   hospitalId Int
   
-  @@index([hospitalId], name: "HospitalIdIndex") // Adding index to hospitalId field
-}
+//   @@index([hospitalId], name: "HospitalIdIndex") // Adding index to hospitalId field
+// }
