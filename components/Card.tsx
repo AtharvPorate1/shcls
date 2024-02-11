@@ -1,18 +1,14 @@
-const Card = async () => {
-  const hospitals = await prisma.hospitals.findMany({
-    where: {
-      Category: "ENT"
-    },
-    orderBy: {
-      Rating: 'desc' // Sorting by rating in descending order
-    },
-    take: 5 // Limiting the result to 5 hospitals
-  });
+"use client"
 
-  console.log("IDhar sehe shuru", hospitals);
+
+
+const Card = ({hospitals}) => {
+
+
 
   return (
     <>
+    {hospitals && <div className="p-4">
       {hospitals.map((hospital) => (
         <div key={hospital.id} className='flex justify-center border-2 border-[#909090] m-3 rounded-xl'>
           <div className="flex border-none p-2 rounded-lg w-[95%] flex-wrap mb-2 shadow-md">
@@ -32,6 +28,9 @@ const Card = async () => {
           </div>
         </div>
       ))}
+      </div>}
+    
+    
     </>
   );
 }

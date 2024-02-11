@@ -1,9 +1,11 @@
-
+"use server";
 import Card from "@/components/Card";
 
 import Navbar from "@/components/Navbar";
 import Result from "@/components/Result";
+
 import Searchbar from "@/components/Searchbar";
+
 
 import { getDiagnosis } from "@/utils/ai";
 
@@ -37,8 +39,7 @@ const page = async() => {
                 <Searchbar />
                 </div>
                 {/* {response} */}
-                <Result/>
-                <Card/>
+                
                 
             </div>
         </div>
