@@ -1,4 +1,7 @@
 import OpenAI from "openai";
+import { prisma } from "./db";
+import { redis } from "./redis";
+redis
 
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
@@ -10,9 +13,21 @@ export const getDiagnosis = async (message: string) => {
         ],
         model: "gpt-3.5-turbo-0125",
         temperature: 0,
-        response_format: { type: "json_object" },
+        // response_format: { type: "json_object" },
     });
 
-    console.log(completion.choices[0].message.content);
+    // console.log(completion.choices[0].message.content);
     return completion.choices[0].message.content;
 }
+
+export const getHospitals = async (Category: string) => {
+    const hospitals = await prisma.hospitals.findMany({
+      where: {
+        Category: Category
+      },
+      orderBy: {
+        Rating: 'desc' // Sorting by rating in descending order
+      },
+      take: 5 // Limiting the result to 5 hospitals
+    });
+    return hospitals;}

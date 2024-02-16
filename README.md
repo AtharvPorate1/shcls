@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Smart Healthcare Centre Locating System
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The Smart Healthcare Centre Locating System is a web application aimed at addressing the coordination gaps in the Indian healthcare system. It focuses on efficiently locating healthcare centers based on patients' signs/symptoms and providing essential information such as referrals, triage services, and insurance provisions. This system aims to improve patient access to timely and appropriate care, especially considering the challenges posed by the fragmented nature of the healthcare system in India.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Problem Statement
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In India, the lack of coordination among healthcare providers often leads to challenges for patients in accessing timely and appropriate care. Factors such as the fragmented nature of the healthcare system, absence of electronic health records, and insufficient financial incentives for collaboration contribute to this issue. Patients may not be aware of the need for referrals, and financial constraints might hinder them from seeking specialist care promptly, resulting in delayed or neglected treatment.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Solution
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The Smart Healthcare Centre Locating System is designed to bridge the coordination gaps in the Indian healthcare system by providing a user-friendly web application. This application will enable users to input their signs/symptoms and receive recommendations for nearby healthcare centers that can address their specific needs. Additionally, the system will provide information about referrals, triage services, and insurance provisions to facilitate seamless access to healthcare services.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Symptom-Based Search:** Users can input their signs/symptoms, and the system will recommend nearby healthcare centers based on their specific needs.
+- **Referral Information:** The application provides information about referrals, enabling patients to navigate the healthcare system more effectively.
+- **Triage Services:** Users can access information about triage services offered at healthcare centers to prioritize care based on urgency.
+- **Insurance Provisions:** The system provides details about insurance provisions accepted at different healthcare centers, helping patients make informed decisions about their healthcare options.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- NextJs
+- Tailwind CSS
+- Redis for Caching
+- QStash
+- nodeMailer
+- OpenAi api
+- PlanetScale Database (MySQL)
+- Prisma ORM
 
-## Deploy on Vercel
+## Installation and Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository: `git clone https://github.com/AtharvPorate1/shcls`
+2. Navigate to the project directory: `cd shcls`
+3. Install dependencies: `npm install`
+4. Set up environment variables :. `Setup OpenAi api, Redis, PlanetScale database api`
+5. Start the server: `npm run dev`
+6. Connect to Database: `pscale connect healthcare dev --port 3309`
+7. Access the application through your web browser at `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,7 +1,5 @@
 import { prisma } from "./db";
 
-
-
 // // Example usage:
 // const hospitalsData = [
 //   {
