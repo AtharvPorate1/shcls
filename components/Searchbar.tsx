@@ -1,4 +1,5 @@
 
+
 import { getDiagnosis } from "@/utils/ai";
 import { redis } from "@/utils/redis";
 import { Car } from "lucide-react";
@@ -81,5 +82,6 @@ const Searchbar = () => {
     </div>
   );
 };
+
 
 export default Searchbar;

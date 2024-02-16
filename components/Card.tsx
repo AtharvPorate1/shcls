@@ -1,8 +1,15 @@
-"use client"
 
 
-
-const Card = ({hospitals}) => {
+const Card = async () => {
+  const hospitals = await prisma.hospitals.findMany({
+    where: {
+      Category: "ENT"
+    },
+    orderBy: {
+      Rating: 'desc' // Sorting by rating in descending order
+    },
+    take: 5 // Limiting the result to 5 hospitals
+  });
 
 
 
@@ -36,3 +43,4 @@ const Card = ({hospitals}) => {
 }
 
 export default Card;
+
